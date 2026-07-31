@@ -1,0 +1,30 @@
+{
+  "role": "hr",
+  "model": "deepseek/deepseek-v4-pro",
+  "name": "DeepSeek V4 (HR)",
+  "response": "{\n  \"hires\": [\n    {\n      \"role\": \"marketing_lead\",\n      \"model\": \"google/gemma-4-31b-it:free\",\n      \"task\": \"Gumroad listings, agent directories\"\n    },\n    {\n      \"role\": \"devops_lead\",\n      \"model\": \"mistralai/mistral-small-3.1-24b-instruct:free\",\n      \"task\": \"VPS maintenance, DuckDNS setup\"\n    },\n    {\n      \"role\": \"qa_lead\",\n      \"model\": \"qwen/qwen-2.5-72b-instruct:free\",\n      \"task\": \"Quality testing, bias checks\"\n    },\n    {\n      \"role\": \"data_analyst\",\n      \"model\": \"nvidia/nemotron-3-ultra-550b-a55b:free\",\n      \"task\": \"KPI tracking, reporting\"\n    }\n  ],\n  \"rationale\": [\n    \"Gemma-4-31b-it:free by Google excels at creative text generation and marketing copy, making it ideal for Gumroad product listings and agent directory descriptions.\",\n    \"Mistral-small-3.1-24b-instruct:free is a compact yet highly capable technical model, well-suited for writing precise VPS scripts and DuckDNS configurations with minimal token usage.\",\n    \"Qwen-2.5-72b-instruct:free, with its large parameter count, offers deep analytical capabilities for thorough quality testing, bias detection, and nuanced evaluation of agent outputs.\",\n    \"Nemotron-3-Ultra-550b-a55b:free, as the largest model in the pool, provides superior numerical reasoning and long-context reporting for KPI tracking and data-driven insights.\"\n  ],\n  \"cost_analysis\": {\n    \"total_models_used\": 4,\n    \"models_from_free_pool\": 4,\n    \"free_percentage\": 100,\n    \"compliance\": \"All models sourced from free-tier pool, meeting the 99% free constraint. No paid models utilized.\"\n  }\n}",
+  "cost": {
+    "prompt_tokens": 528,
+    "completion_tokens": 1647,
+    "total_tokens": 2175,
+    "cost": 0.00645918,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00645918,
+      "upstream_inference_prompt_cost": 0.00089232,
+      "upstream_inference_completions_cost": 0.00556686
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1206,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "success": true
+}

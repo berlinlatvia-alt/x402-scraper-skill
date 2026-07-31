@@ -1,0 +1,30 @@
+{
+  "role": "board",
+  "model": "anthropic/claude-opus-5",
+  "name": "Opus 5 (Board)",
+  "response": "{\n  \"agent_dsl\": \"1.0\",\n  \"actor\": \"board_of_directors\",\n  \"action\": \"final_deployment_decision\",\n  \"decision_ref\": \"BOD-DEP-2026-001\",\n  \"inputs_reviewed\": [\n    \"gm_approval (INCOMPLETE \u2014 JSON deliverable truncated at plan_ref)\",\n    \"cto_review (INCOMPLETE \u2014 security_risks SEC-005 truncated)\",\n    \"supervisor_check (FAILED \u2014 14 findings: 1 critical, 6 high, 7 medium)\"\n  ],\n  \"verdict\": \"REJECTED_FOR_FULL_DEPLOYMENT / PARTIAL_CONDITIONAL_APPROVAL\",\n  \"scope_decision\": {\n    \"approved_conditionally\": [\n      {\n        \"id\": \"DEP-001\",\n        \"scope\": \"DNS + TLS-terminated reverse proxy only. No public exposure of application ports.\",\n        \"gate\": \"C2, C3\"\n      },\n      {\n        \"id\": \"DEP-004\",\n        \"scope\": \"Static monitoring dashboard, internal/authenticated audience only. No customer-facing marketing claims.\",\n        \"gate\": \"C2, C3\"\n      }\n    ],\n    \"held_pending_conditions\": [\n      {\n        \"id\": \"DEP-002\",\n        \"reason\": \"Revenue-taking from real customers. Fulfillment mechanism, product existence, and accountable seller-of-record all unverified.\",\n        \"gate\": \"C1, C2, C4\"\n      },\n      {\n        \"id\": \"DEP-003\",\n        \"reason\": \"x402 middleware asserted absent but unverified; payment integrity controls not implemented; depends on DEP-001 completion.\",\n        \"gate\": \"C1, C2, C3, C4\"\n      }\n    ],\n    \"rejected\": [\n      {\n        \"id\": \"DEP-005\",\n        \"reason\": \"Autonomous executive hierarchy taking self-directed commercial action is rejected as scoped. No accountable human decision-maker, no kill switch, no audit trail, no spend controls. Board will not approve a structure whose purpose is to remove human sign-off from consequential decisions.\",\n        \"path_forward\": \"C6\"\n      },\n      {\n        \"id\": \"DEP-006\",\n        \"reason\": \"'Free-tier models for ALL execution tasks' is rejected on three independent grounds: (a) probable provider ToS exposure for commercial use, (b) rate-limit fragility on customer-facing paths, (c) 'all execution tasks' eliminates human review of outputs that reach paying customers.\",\n        \"path_forward\": \"C5\"\n      }\n    ]\n  },\n  \"conditions\": [\n    {\n      \"id\": \"C1\",\n      \"title\": \"Named human accountable owner\",\n      \"requ",
+  "cost": {
+    "prompt_tokens": 11039,
+    "completion_tokens": 2000,
+    "total_tokens": 13039,
+    "cost": 0.105195,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.105195,
+      "upstream_inference_prompt_cost": 0.055195,
+      "upstream_inference_completions_cost": 0.05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 450,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "success": true
+}

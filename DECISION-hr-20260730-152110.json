@@ -1,0 +1,30 @@
+{
+  "role": "hr",
+  "model": "deepseek/deepseek-v4-pro",
+  "name": "DeepSeek V4 (HR)",
+  "response": "{\n  \"hires\": [\n    {\n      \"role\": \"marketing_lead\",\n      \"model\": \"qwen/qwen-2.5-72b-instruct:free\"\n    },\n    {\n      \"role\": \"devops_lead\",\n      \"model\": \"mistralai/mistral-small-3.1-24b-instruct:free\"\n    },\n    {\n      \"role\": \"qa_lead\",\n      \"model\": \"google/gemma-4-31b-it:free\"\n    },\n    {\n      \"role\": \"data_analyst\",\n      \"model\": \"bytedance-seed/seed-4.7-flash:free\"\n    }\n  ],\n  \"rationale\": [\n    \"marketing_lead: Qwen 2.5 72B excels in creative writing and marketing copy generation, ideal for Gumroad listings and agent directories.\",\n    \"devops_lead: Mistral Small 3.1 24B is optimized for coding and technical tasks, suitable for VPS maintenance and DuckDNS configuration.\",\n    \"qa_lead: Gemma 4 31B IT offers strong reasoning and instruction-following, perfect for quality testing and bias checks.\",\n    \"data_analyst: ByteDance Seed 4.7 Flash provides fast, efficient processing for KPI tracking and report generation.\"\n  ],\n  \"cost_analysis\": {\n    \"total_cost\": \"$0.00\",\n    \"model_costs\": \"All models are from the free tier, incurring no monetary cost.\",\n    \"constraints\": \"Free-tier models may have rate limits, lower priority, and usage caps. The 99% free constraint is satisfied as all hires are free models.\"\n  }\n}",
+  "cost": {
+    "prompt_tokens": 528,
+    "completion_tokens": 1989,
+    "total_tokens": 2517,
+    "cost": 0.0030185694,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0030185694,
+      "upstream_inference_prompt_cost": 0.0003537072,
+      "upstream_inference_completions_cost": 0.0026648622
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1625,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "success": true
+}

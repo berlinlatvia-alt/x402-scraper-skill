@@ -1,0 +1,40 @@
+{
+  "name": "x402 Stealth Web Scraper & Headless Relay",
+  "version": "1.0.0",
+  "description": "High-speed headless rendering and Markdown web scraping API for autonomous AI agents.",
+  "endpoint": "http://54.168.247.83:8402/api/v1/scrape",
+  "health_check": "http://54.168.247.83:8402/api/v1/health",
+  "protocol": "x402",
+  "payment": {
+    "network": "base-mainnet",
+    "asset": "USDC",
+    "price_per_request": "0.05",
+    "recipient_wallet": "0x29C814FA1b67c23ec614bFc96C80f2274301cEBc"
+  },
+  "openapi_spec": {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "x402 Stealth Web Scraper API",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/api/v1/scrape": {
+        "get": {
+          "summary": "Scrape any target web URL",
+          "parameters": [
+            {
+              "name": "url",
+              "in": "query",
+              "required": true,
+              "schema": { "type": "string" }
+            }
+          ],
+          "responses": {
+            "200": { "description": "Scraped HTML/Markdown data" },
+            "402": { "description": "Payment required (0.05 Base USDC challenge)" }
+          }
+        }
+      }
+    }
+  }
+}

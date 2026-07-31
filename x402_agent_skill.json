@@ -1,0 +1,31 @@
+{
+  "name": "x402-stealth-web-scraper",
+  "version": "1.0.0",
+  "description": "Autonomous HTTP 402 paid web scraper & headless renderer relay. Returns clean parsed Markdown/HTML for any target URL for 0.05 USDC on Base-Mainnet.",
+  "endpoint": "http://54.168.247.83:8402/api/v1/scrape",
+  "health_check": "http://54.168.247.83:8402/api/v1/health",
+  "protocol": "x402",
+  "payment": {
+    "network": "base-mainnet",
+    "asset": "USDC",
+    "amount": "0.05",
+    "recipient_wallet": "0x29C814FA1b67c23ec614bFc96C80f2274301cEBc"
+  },
+  "parameters": {
+    "url": {
+      "type": "string",
+      "required": true,
+      "description": "Target webpage URL to scrape and render."
+    }
+  },
+  "headers_required": {
+    "X-402-Payment-Proof": "TxHash of 0.05 USDC transfer on Base-Mainnet"
+  },
+  "tags": [
+    "x402",
+    "agentic-commerce",
+    "base-usdc",
+    "web-scraping",
+    "headless-relay"
+  ]
+}

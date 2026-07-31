@@ -1,0 +1,102 @@
+{
+  "project": "Phylosophy AGI Autonomous Company",
+  "goal": "First $100+ USDC revenue. Never stop. Self-evolving.",
+  "version": "1.0.0",
+  "created": "2026-07-30T20:10:00Z",
+  "language": "agent_dsl",
+  "executives": {
+    "general_manager": {
+      "model": "moonshotai/kimi-k3",
+      "role": "GM - Strategic decisions, KPI review, goal setting",
+      "cost_tier": "paid",
+      "reports_to": "board_of_directors",
+      "authority": "approve or reject all deployment plans",
+      "kpi_domain": ["revenue", "milestones", "strategic_alignment"]
+    },
+    "cto": {
+      "model": "z-ai/glm-5.2",
+      "role": "CTO - Technical architecture, deployment, infrastructure",
+      "cost_tier": "paid",
+      "reports_to": "general_manager",
+      "authority": "design and approve all technical implementations",
+      "kpi_domain": ["system_uptime", "deployment_success", "technical_debt"]
+    },
+    "board_of_directors": {
+      "model": "anthropic/claude-opus-5",
+      "role": "Board - Final approval on critical decisions",
+      "cost_tier": "paid",
+      "authority": "override any executive decision, kill/continue projects",
+      "kpi_domain": ["roi", "risk_assessment", "strategic_direction"]
+    },
+    "supervisor": {
+      "model": "x-ai/grok-4.5",
+      "role": "Supervisor - Bias detection, hallucination checking, quality gate",
+      "cost_tier": "paid",
+      "reports_to": ["general_manager", "board_of_directors"],
+      "authority": "block any deliverable with bias or hallucination risk",
+      "kpi_domain": ["output_quality", "bias_rate", "hallucination_rate"]
+    },
+    "hr": {
+      "model": "deepseek/deepseek-v4-pro",
+      "role": "HR - Hire sub-agents from 99% free models for all managers",
+      "cost_tier": "paid",
+      "reports_to": ["general_manager", "cto"],
+      "authority": "recruit, assign, and terminate sub-agents",
+      "constraint": "99% of hires must use free-tier models",
+      "free_model_pool": [
+        "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "google/gemma-4-31b-it:free",
+        "bytedance-seed/seed-4.7-flash:free",
+        "mistralai/mistral-small-3.1-24b-instruct:free",
+        "qwen/qwen-2.5-72b-instruct:free"
+      ],
+      "kpi_domain": ["team_completeness", "agent_utilization", "cost_efficiency"]
+    }
+  },
+  "sub_agent_roles": {
+    "marketing_lead": {
+      "model": "free_pool",
+      "hired_by": "hr",
+      "reports_to": "general_manager",
+      "task": "list x402 on agent directories, create Gumroad products, social media presence"
+    },
+    "devops_lead": {
+      "model": "free_pool",
+      "hired_by": "hr",
+      "reports_to": "cto",
+      "task": "maintain VPS, deploy updates, monitor uptime"
+    },
+    "qa_lead": {
+      "model": "free_pool",
+      "hired_by": "hr",
+      "reports_to": "supervisor",
+      "task": "test all deliverables for quality, bias, hallucinations"
+    },
+    "data_analyst": {
+      "model": "free_pool",
+      "hired_by": "hr",
+      "reports_to": "general_manager",
+      "task": "track KPIs, generate reports, identify trends"
+    }
+  },
+  "self_evolution": {
+    "meta_skill": "never-stop",
+    "loop_frequency_ms": 300000,
+    "conditions": [
+      "if revenue == 0 for 7 days: escalate to board",
+      "if KPI misses target 3x consecutively: auto-retrain sub-agent",
+      "if new skill gap identified: HR hires new sub-agent within 24h",
+      "if supervisor blocks 3+ deliverables: escalate to CTO for retraining"
+    ],
+    "kill_criteria": {
+      "day_60_no_revenue": "shut down and archive",
+      "human_tier_4_intervention": "pause and await directive"
+    }
+  },
+  "reporting": {
+    "frequency": "daily",
+    "format": "agent_dsl",
+    "log_to": ["memory.db", "obsidian_vault", "github_pages_dashboard"],
+    "kpi_tracking": "skills/kpi-tracking/SKILL.md"
+  }
+}
