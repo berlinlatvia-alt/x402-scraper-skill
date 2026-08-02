@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>x402 Stealth Web Scraper — Pay-per-call scraping for AI agents</title>
+<meta name="description" content="Pay-per-call web scraping API for AI agents. Send any URL, get clean Markdown/HTML back. $0.05 USDC on Base Mainnet via x402. No API keys, no signup.">
+<style>
+  :root { --bg:#0b0f19; --card:#111827; --border:#1f2937; --text:#f8fafc; --muted:#94a3b8; --accent:#38bdf8; --ok:#34d399; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+  .wrap { max-width:880px; margin:0 auto; padding:3rem 1.5rem; }
+  .badge { display:inline-block; background:#10b98122; color:var(--ok); border:1px solid #10b98144; padding:.2rem .7rem; border-radius:999px; font-size:.8rem; font-weight:600; letter-spacing:.03em; }
+  h1 { font-size:2.2rem; font-weight:800; margin:1rem 0 .5rem; background:linear-gradient(135deg,#38bdf8,#818cf8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .sub { color:var(--muted); font-size:1.1rem; margin-bottom:2rem; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin:2rem 0; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1.25rem; }
+  .card b { color:var(--accent); display:block; margin-bottom:.3rem; }
+  pre { background:#0f172a; border:1px solid var(--border); border-radius:10px; padding:1rem; overflow-x:auto; font-size:.85rem; color:#e2e8f0; }
+  code { font-family:'JetBrains Mono',Consolas,monospace; }
+  a { color:var(--accent); }
+  .cta { margin:2rem 0; }
+  .endpoint { display:inline-block; background:#38bdf815; border:1px solid #38bdf840; color:var(--accent); padding:.6rem 1rem; border-radius:8px; font-family:monospace; word-break:break-all; }
+  .steps li { margin:.5rem 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="badge">LIVE · x402 · Base Mainnet</span>
+  <h1>x402 Stealth Web Scraper</h1>
+  <p class="sub">Pay-per-call web scraping for AI agents. Send any URL, get clean Markdown/HTML back. No API keys. No signup. No subscriptions.</p>
+
+  <div class="grid">
+    <div class="card"><b>$0.05 USDC</b>per request on Base Mainnet</div>
+    <div class="card"><b>HTTP 402</b>standard x402 payment flow, 2-second settlement</div>
+    <div class="card"><b>No keys, no KYC</b>the payment is the authentication</div>
+    <div class="card"><b>Agent-native</b>designed for autonomous agents and MCP tools</div>
+  </div>
+
+  <div class="cta">
+    <div class="endpoint">http://54.168.247.83:8402/api/v1/scrape?url=&lt;TARGET&gt;</div>
+  </div>
+
+  <h2>How to call it</h2>
+  <ol class="steps">
+    <li>Send <b>0.05 USDC</b> on Base Mainnet to <code>0x29C814FA1b67c23ec614bFc96C80f2274301cEBc</code></li>
+    <li>Call the endpoint with the transaction hash in the <code>X-402-Payment-Proof</code> header</li>
+    <li>Get rendered Markdown/HTML back</li>
+  </ol>
+
+  <h2>curl</h2>
+  <pre><code># 1. Send 0.05 USDC on Base → 0x29C814FA1b67c23ec614bFc96C80f2274301cEBc
+# 2. Call with the tx hash:
+curl "http://54.168.247.83:8402/api/v1/scrape?url=https://example.com" \
+  -H "X-402-Payment-Proof: 0xYOUR_TX_HASH"</code></pre>
+
+  <h2>Python (httpx)</h2>
+  <pre><code>import httpx
+r = httpx.get(
+    "http://54.168.247.83:8402/api/v1/scrape",
+    params={"url": target_url},
+    headers={"X-402-Payment-Proof": tx_hash},
+    timeout=30,
+)
+print(r.json())  # {"status": "success", "data": {"parsed_content": ...}}</code></pre>
+
+  <h2>Agent frameworks</h2>
+  <pre><code># LangChain
+from x402_scraper_wrappers import langchain_scrape_tool
+tools = [langchain_scrape_tool()]
+
+# CrewAI
+from x402_scraper_wrappers import crewai_scrape_tool
+tools = [crewai_scrape_tool()]</code></pre>
+
+  <h2>Discovery</h2>
+  <ul>
+    <li>Manifest: <a href="http://54.168.247.83:8402/.well-known/x402.json">/.well-known/x402.json</a></li>
+    <li>Health: <a href="http://54.168.247.83:8402/api/v1/health">/api/v1/health</a></li>
+    <li>Examples: <a href="https://gist.github.com/berlinlatvia-alt/f00456ac570a5827b44b63d9a7dc37b0">curl / Python / JS gist</a></li>
+    <li>Skill: <a href="https://agentskill.sh/@berlinlatvia-alt/x402-scraper-skill">agentskill.sh</a></li>
+    <li>Source: <a href="https://github.com/berlinlatvia-alt/x402-scraper-skill">github.com/berlinlatvia-alt/x402-scraper-skill</a></li>
+  </ul>
+
+  <p style="margin-top:2.5rem;color:#64748b;font-size:.85rem">Settlement: USDC on Base Mainnet (eip155:8453). Payments verified on-chain.</p>
+</div>
+</body>
+</html>
